@@ -1,0 +1,32 @@
+/*position*/
+.p-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.p-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.p-absolute {position: absolute;}
+.p-relative {position: relative;}
+
+@mixin p-absolute-ctr($v:false,$h:false) {
+    position: absolute;
+    @if ($v and $h != true) {
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if ($h and $v != true) {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if ($h and $v) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+.p-absolute-ctr-h {@include p-absolute-ctr(true,false);}
+.p-absolute-ctr-v {@include p-absolute-ctr(false,true);}
+.p-absolute-ctr {@include p-absolute-ctr(true,true);}

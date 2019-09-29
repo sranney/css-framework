@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: map-get($spacers, 4) map-get($spacers,6);
+    font-family: $defaultFontFamily;
+    font-size: $font-size-base;
+}
+
+ul {
+    padding: 0;
+}

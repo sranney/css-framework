@@ -1,0 +1,10 @@
+a {
+    &,
+    &:active,
+    &:visited,
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+}
+

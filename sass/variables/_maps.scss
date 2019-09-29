@@ -1,0 +1,176 @@
+$color-mapping: (
+    neutral: (
+        200: (
+            base: var(--color-neutral-200),
+            hover: var(--color-neutral-300)
+        ),
+        300: (
+            base: var(--color-neutral-300),
+            hover: var(--color-neutral-400)
+        ),
+        400: (
+            base: var(--color-neutral-400),
+            hover: var(--color-neutral-500)
+        ),
+        500: (
+            base: var(--color-neutral-500),
+            hover: var(--color-neutral-400)
+        ),
+        600: (
+            base: var(--color-neutral-600),
+            hover: var(--color-neutral-500)
+        ),
+        700: (
+            base: var(--color-neutral-700),
+            hover: var(--color-neutral-600)
+        ),
+        800: (
+            base: var(--color-neutral-800),
+            hover: var(--color-neutral-700)
+        ),
+        900: (
+            base: var(--color-neutral-900),
+            hover: var(--color-neutral-800)
+        ),
+        1000: (
+            base: var(--color-neutral-1000),
+            hover: var(--color-neutral-800)
+        )
+    ),
+    primary: (
+        200: (
+            base: var(--color-primary-200),
+            hover: var(--color-primary-300)
+        ),
+        300: (
+            base: var(--color-primary-300),
+            hover: var(--color-primary-400)
+        ),
+        400: (
+            base: var(--color-primary-400),
+            hover: var(--color-primary-500)
+        ),
+        500: (
+            base: var(--color-primary-500),
+            hover: var(--color-primary-400)
+        ),
+        600: (
+            base: var(--color-primary-600),
+            hover: var(--color-primary-500)
+        ),
+        700: (
+            base: var(--color-primary-700),
+            hover: var(--color-primary-600)
+        ),
+        800: (
+            base: var(--color-primary-800),
+            hover: var(--color-primary-700)
+        ),
+        900: (
+            base: var(--color-primary-900),
+            hover: var(--color-primary-800)
+        )
+    ),
+    accent: (
+        200: (
+            base: var(--color-accent-200),
+            hover: var(--color-accent-300)
+        ),
+        300: (
+            base: var(--color-accent-300),
+            hover: var(--color-accent-400)
+        ),
+        400: (
+            base: var(--color-accent-400),
+            hover: var(--color-accent-500)
+        ),
+        500: (
+            base: var(--color-accent-500),
+            hover: var(--color-accent-400)
+        ),
+        600: (
+            base: var(--color-accent-600),
+            hover: var(--color-accent-500)
+        ),
+        700: (
+            base: var(--color-accent-700),
+            hover: var(--color-accent-600)
+        ),
+        800: (
+            base: var(--color-accent-800),
+            hover: var(--color-accent-700)
+        ),
+        900: (
+            base: var(--color-accent-900),
+            hover: var(--color-accent-800)
+        )
+    ),
+    danger: (
+        200: (
+            base: var(--color-danger-200),
+            hover: var(--color-danger-300)
+        ),
+        300: (
+            base: var(--color-danger-300),
+            hover: var(--color-danger-400)
+        ),
+        400: (
+            base: var(--color-danger-400),
+            hover: var(--color-danger-500)
+        ),
+        500: (
+            base: var(--color-danger-500),
+            hover: var(--color-danger-400)
+        ),
+        600: (
+            base: var(--color-danger-600),
+            hover: var(--color-danger-500)
+        ),
+        700: (
+            base: var(--color-danger-700),
+            hover: var(--color-danger-600)
+        ),
+        800: (
+            base: var(--color-danger-800),
+            hover: var(--color-danger-700)
+        ),
+        900: (
+            base: var(--color-danger-900),
+            hover: var(--color-danger-800)
+        )
+    ),
+    success: (
+        200: (
+            base: var(--color-success-200),
+            hover: var(--color-success-300)
+        ),
+        300: (
+            base: var(--color-success-300),
+            hover: var(--color-success-400)
+        ),
+        400: (
+            base: var(--color-success-400),
+            hover: var(--color-success-500)
+        ),
+        500: (
+            base: var(--color-success-500),
+            hover: var(--color-success-400)
+        ),
+        600: (
+            base: var(--color-success-600),
+            hover: var(--color-success-500)
+        ),
+        700: (
+            base: var(--color-success-700),
+            hover: var(--color-success-600)
+        ),
+        800: (
+            base: var(--color-success-800),
+            hover: var(--color-success-700)
+        ),
+        900: (
+            base: var(--color-success-900),
+            hover: var(--color-success-800)
+        )
+    )
+)

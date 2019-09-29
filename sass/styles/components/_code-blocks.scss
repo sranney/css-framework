@@ -1,0 +1,47 @@
+pre {
+    white-space: normal;
+
+    &.code-block {
+        border-radius: $border-radius-medium-round;
+        padding: map-get($spacers, 5);
+        @include box-shadow($offset-y: $box-shadow-spread-1, $offset-x: $box-shadow-spread-1, $blur: $box-shadow-spread-3, $spread: $box-shadow-spread-1);
+        background-color: var(--color-primary-800);
+    
+        .attribute,
+        .syntax {
+            color: var(--color-primary-400); 
+        }
+        .return,
+        .html-tag,
+        .inner-text {
+            color: var(--color-primary-300);
+        }
+        .variable {
+            color: var(--color-primary-200);
+        }
+        .react-component,
+        .function,
+        .keyword {
+            color: var(--color-primary-100);
+            font-weight: $font-weight-bold;
+        }
+        .highlight {
+            color: var(--color-accent-500);
+            font-weight: $font-weight-bold;
+        }
+    }
+} 
+
+
+code.inline {
+    display: inline;
+    margin: 0 4px;
+    font-size: .75em;
+    border-radius: $border-radius-medium-round;
+    background-color: var(--color-primary-800);
+    color: var(--color-accent-500);
+    font-weight: $font-weight-bold;
+    padding: 4px 8px;
+    top: -1*map-get($spacers, 1);
+    position: relative;
+}

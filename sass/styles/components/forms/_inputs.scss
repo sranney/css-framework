@@ -1,0 +1,169 @@
+//styling for text inputs
+//general - all inputs will have this styling
+input,
+:-webkit-autofill {
+    font-family: 'Crimson Pro', serif !important;
+    font-size: $font-size-large !important;
+    transition: all 0.5s;
+    outline: none;
+    @include border-tool($color: 'transparent');
+    height: 40px;
+    background-color: transparent;
+    padding-left: map-get($spacers, 3);
+}
+
+//interactive types for inputs - bottom highlight, highlight
+//highlight input
+.input-highlight {
+    @include border-tool($width: '2px', $color: var(--color-neutral-600));
+    border-radius: $border-radius-slight-round;
+    box-shadow: $inset-box-shadow-initial-transparent
+}
+.input-highlight.focus,
+.input-highlight.focus:invalid:placeholder-shown {
+    box-shadow: inset 0 0 0 2px var(--color-success-700);
+    @include border-tool($property: 'color', $color: var(--color-success-700));
+}
+.input-highlight:not(.focus):valid {
+    @include border-tool($property: 'color',$color: var(--color-primary-900));
+}
+.input-highlight.interacted:not(.focus):invalid {
+    @include border-tool($property: 'color', $color: var(--color-danger-900));
+}
+
+.input-highlight:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px var(--color-primary-0) inset !important;
+    @include border-tool($color: var(--color-primary-900),$width: '2px', $flag: '!important');
+}
+
+//bottom-highlight input
+.input-bottom-highlight {
+    box-shadow: $bottom-inset-box-shadow-1;
+    @include border-tool($property: 'bottom',$width: '2px',$color: 'transparent');
+    @include border-tool($property: 'left', $width: '0px');
+    @include border-tool($property: 'right', $width: '0px');
+}
+.input-bottom-highlight.focus,
+.input-bottom-highlight.focus:invalid:placeholder-shown{
+    box-shadow: inset 0 -3px 0 0 var(--color-success-900);
+    border-bottom-color: var(--color-success-900);
+}
+.input-bottom-highlight:not(.focus):valid {
+    box-shadow: inset 0 -3px 0 0 var(--color-primary-900);
+    border-bottom-color: var(--color-primary-900);
+}
+.input-bottom-highlight.interacted:not(.focus):invalid {
+    box-shadow: inset 0 -3px 0 0 var(--color-danger-900);
+    border-bottom-color: var(--color-danger-900);
+    color: var(--color-neutral-600);
+}
+
+.bg-validate.interacted:not(.focus):invalid {
+    background-color: var(--color-danger-200);
+}
+
+.input-bottom-highlight:-webkit-autofill {
+    box-shadow: inset 0 -3px 0 0 var(--color-primary-900), 0 0 0 100px var(--color-primary-0) inset !important;
+}
+
+//span styling
+//general styling for all form spans following inputs
+label input+span {
+    left: map-get($spacers, 2);
+    position: absolute;
+    transition: all 0.25s;
+    pointer-events: none;
+}
+input+span {
+    top: 35%;
+    transform: translateY(-50%);
+    font-size: $font-size-large;
+}
+
+input:not(:placeholder-shown):invalid+span{
+    color: var(--color-danger-900);
+}
+
+:-webkit-auto-fill + span {
+    color: var(--color-neutral-1000);
+}
+
+input:placeholder-shown+span {
+    color: var(--color-neutral-600);
+}
+
+
+//slight modification for left placement for spans that are used with .highlight inputs
+.input-highlight+span {
+    left: map-get($spacers, 3);
+}
+
+//span classes for hover effects
+//span.hover-bolden
+input + .hover-bolden {
+    color: var(--color-neutral-600);
+}
+input:not(.focus):placeholder-shown:hover + .hover-bolden {
+    color: var(--color-primary-900);
+    font-size: $font-size-large + 1;
+}
+input.focus + .hover-bolden,
+.interacted:not(:placeholder-shown) + .hover-bolden,
+:-webkit-autofill + .hover-bolden {
+    opacity: 0;
+}
+
+//span.hover-expand
+input + .hover-expand {
+    color: var(--color-primary-500);
+}
+
+input:not(.focus):placeholder-shown:hover + .hover-expand {
+    font-size: $font-size-large + 1;
+    color: var(--color-primary-900);
+    letter-spacing: $letter-spacing-3px;
+}
+
+input.focus + .hover-expand,
+.interacted:not(:placeholder-shown) + .hover-expand,
+:-webkit-autofill + .hover-expand {
+    opacity: 0;
+}
+
+//span.to-above
+.interacted:not(:placeholder-shown)+.to-above,
+:-webkit-autofill + .to-above {
+    top: -5px;
+    font-size: $font-size-small;
+    opacity: 1;
+    color: var(--color-neutral-1000);
+}
+
+.interacted:not(.focus):not(:placeholder-shown):invalid+.to-above {
+    color: var(--color-danger-900);
+}
+
+.interacted.focus:placeholder-shown+.to-above {
+    opacity: 1;
+    letter-spacing: 0;
+    color: var(--color-neutral-600);
+}
+
+//span.to-below 
+.interacted:not(:placeholder-shown)+.to-below,
+:-webkit-autofill + .to-below {
+    top: 55px;
+    font-size: $font-size-small;
+    opacity: 1;
+    color: var(--color-neutral-1000);
+}
+
+.interacted:not(.focus):not(:placeholder-shown):invalid+.to-below {
+    color: var(--color-danger-900);
+}
+
+.interacted.focus:placeholder-shown+.to-below {
+    opacity: 1;
+    letter-spacing: 0;
+    color: var(--color-neutral-600);
+}

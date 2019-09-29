@@ -1,0 +1,17 @@
+.list-item{
+    &,
+    .list-item-title,
+    .list-item-meta,
+    .list-item-preview  {
+        display: block;
+    }
+
+    .list-item-title {
+        font-size: $font-size-large;
+        font-weight: $font-weight-bold;
+    }
+
+    .list-item-meta {
+        font-size: $font-size-small;
+    }
+}

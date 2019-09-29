@@ -1,0 +1,54 @@
+/*Typography - font size*/
+.font-size-xxlarge {font-size: $font-size-xxlarge;}
+.font-size-xlarge {font-size: $font-size-xlarge;}
+.font-size-large {font-size: $font-size-large;}
+.font-size-base {font-size: $font-size-base;}
+.font-size-small {font-size: $font-size-small;}
+.font-size-xsmall {font-size: $font-size-xsmall;}
+
+/*Typography - letter spacing*/
+.letter-spacing-0 {letter-spacing: 0;}
+.letter-spacing-1px {letter-spacing: $letter-spacing-1px;}
+.letter-spacing-2px {letter-spacing: $letter-spacing-2px;}
+.letter-spacing-3px {letter-spacing: $letter-spacing-3px;}
+.letter-spacing-4px {letter-spacing: $letter-spacing-4px;}
+.letter-spacing-5px {letter-spacing: $letter-spacing-5px;}
+.letter-spacing-6px {letter-spacing: $letter-spacing-6px;}
+.letter-spacing-7px {letter-spacing: $letter-spacing-7px;}
+.letter-spacing-8px {letter-spacing: $letter-spacing-8px;}
+
+/*Typography - font weight*/
+.font-weight-light {font-weight: $font-weight-light;}
+.font-weight-normal {font-weight: $font-weight-normal;}
+.font-weight-bold {font-weight: $font-weight-bold;}
+
+//Underline
+.text-no-decoration {text-decoration: none;}
+.text-underline {text-decoration: underline;}
+
+//Casing
+.text-uppercase {text-transform: uppercase;}
+.text-capitalize {text-transform: capitalize;}
+.text-lowercase {text-transform: lowercase;}
+
+@mixin links-color ($baseColor: null,$hoverColor: null) {
+    & {color: $baseColor;}
+    &:active,
+    &:visited,
+    &:focus,
+    &:hover {color: $hoverColor;}
+}
+
+//create .text-{neutral|primary|accent...}-{100|200|...} utility classes
+@each $theme, $theme-scale in $color-mapping {
+    @each $scale, $state-map in $theme-scale {
+        .text-#{$theme}-#{$scale} {color: map-get($state-map,'base');@include links-color(map-get($state-map,'base'),map-get($state-map,'hover'));}
+    }
+}
+
+::selection {background-color: var(--color-neutral-500);}
+
+//text alignment
+.text-center {text-align: center;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}

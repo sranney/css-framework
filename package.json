@@ -1,0 +1,18 @@
+{
+  "name": "css-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss ./sass/projects/main.scss ./main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-css-blog": "node-sass --include-path scss ./sass/projects/blog/main.scss ../blog-1.1/src/index.css",
+    "watch-css-blog": "nodemon -e scss -x \"npm run build-css-blog\""    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

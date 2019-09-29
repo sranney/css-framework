@@ -1,0 +1,8 @@
+/* Floats */
+.float-right {float: right;}
+.float-left {float: left;}
+.clear-fix::after {
+    content: '';
+    clear: both;
+    display: block;
+}

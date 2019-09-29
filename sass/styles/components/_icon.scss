@@ -1,0 +1,58 @@
+//Form Icons - select and input
+.form-icon {
+    transition: opacity 0.3s 0.3s, transform 0.3s, color;
+    transform: rotateZ(45deg);
+    opacity: 0;
+}
+
+.form-icon-container {
+    top: 30%;
+    transform: translateY(-50%) rotateZ(-45deg) scale(0.2);
+    left: -8%;
+    position: absolute;
+    border-radius: $border-radius-round $border-radius-round $border-radius-sharp $border-radius-round;
+    @include border-tool($width:'3px',$color:'transparent');
+    padding: map-get($spacers, 2);
+    opacity: 0;
+    background-color: var(--color-neutral-0);
+    transition: transform 0.3s;
+}
+
+.interacted:not(.focus):valid~.form-icon-container {
+    opacity: 1;
+    transform: scaleZ(1) rotateZ(-45deg) translateY(-50%);
+    background-color: var(--color-success-100);
+    @include border-tool($width:'3px',$color: var(--color-success-900));
+}
+
+.interacted:not(.focus):invalid~.form-icon-container {
+    opacity: 1;
+    transform: scaleZ(1) rotateZ(-45deg) translateY(-50%);
+    background-color: var(--color-danger-100);
+    @include border-tool($width:'3px',$color: var(--color-danger-900));
+}
+
+.interacted:not(.focus)~.form-icon-container .form-icon {
+    opacity: 1;
+}
+
+.interacted:not(.focus):valid~.form-icon-container .form-icon {
+    transform: rotateZ(-135deg) rotateY(180deg);
+    color: var(--color-success-900);
+}
+
+.interacted:not(.focus):invalid~.form-icon-container .form-icon {
+    color: var(--color-danger-900);
+}
+
+.select-icon {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    right: 5px;
+    transition: transform 0.3s;
+}
+
+.focus+.select-icon-container .select-icon {
+    transform: translateY(-50%) rotateZ(180deg);
+}

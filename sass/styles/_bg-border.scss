@@ -1,0 +1,80 @@
+//border width, style and color
+@mixin border-tool($property: 'border', $color: var(--color-primary-900), $width: '1px', $style: 'solid', $all: null, $flag: null){
+    @if $property == 'border' and $all == null {
+        border: #{$width} #{$style} #{$color} #{$flag};
+    } @else if $all == null and ($property == 'top' or $property == 'right' or $property == 'left' or $property == 'bottom') {
+        border-#{$property}: #{$width} #{$style} #{$color} #{$flag};
+    } @else if $all == null and $property == 'width' {
+        border-width: #{$width} #{$flag};
+    } @else if $all == null and $property == 'color' {
+        border-color: #{$color} #{$flag};
+    } @else if $all == null and $property == 'style' {
+        border-style: #{$style} #{$flag};
+    } @else if $all == null and $property == 'color,width' or $property == 'width,color' {
+         border-color: #{$color} #{$flag};
+        border-width: #{$width} #{$flag};
+    } @else if $all == null and $property == 'color,style' or $property == 'style,color' {
+        border-color: #{$color} #{$flag};
+        border-style: #{$style} #{$flag};
+    } @else if $all == null and $property == 'width,style' or $property == 'style,width' {
+        border-width: #{$width} #{$flag};
+        border-style: #{$style} #{$flag};
+    } @else if $all != null {
+        @if $property == 'border' {
+            border: $all #{$flag};
+        } @else if $property == 'top' or $property == 'right' or $property == 'left' or $property == 'bottom' {
+            border-#{$property}: $all #{$flag};
+        }
+    }   
+}
+
+// creating background and border utility classes
+// of the form .bg-{neutral|primary|accent|danger}-{200|300|400|500...} and .border-{neutral|primary...}-{200|300|400|500...}
+@each $theme, $theme-scale in $color-mapping {
+    @each $scale, $state-map in $theme-scale {
+        .bg-#{$theme}-#{$scale} {background-color: map-get($state-map,'base');}
+        .border-#{$theme}-#{$scale} {@include border-tool($property: 'color',$color: map-get($state-map,'base'));}
+    }
+}
+
+.border {
+    @include border-tool($width: '3px');
+}
+.border-left-only {
+    @include border-tool($property: 'left', $width: '3px');
+}
+.border-top-only {
+    @include border-tool($property: 'top', $width: '3px');
+}
+.border-right-only {
+    @include border-tool($property: 'right', $width: '3px');
+}
+.border-bottom-only {
+    @include border-tool($property: 'bottom', $width: '3px');
+}
+
+.border-0 {
+    @include border-tool ($all: 'none');
+}
+.border-bottom-0 {
+    @include border-tool ($property: 'bottom', $all:'none');
+}
+.border-left-0 {
+    @include border-tool ($property: 'left', $all:'none');
+}
+.border-right-0 {
+    @include border-tool ($property: 'right', $all:'none');
+}
+.border-top-0 {
+    @include border-tool ($property: 'top', $all:'none');
+}
+
+.border-thin {
+    @include border-tool($property: 'width',$width: '1px');
+}
+.border-default {
+    @include border-tool($property: 'width',$width: '3px');
+}
+.border-thick {
+    @include border-tool($property: 'width', $width: '6px');
+}

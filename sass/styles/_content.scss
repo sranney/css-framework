@@ -1,0 +1,70 @@
+/*Content - Dimensions*/
+.w-auto {width: auto;}
+.h-auto {height: auto;}
+.w-100 {width: 100%;}
+.h-100 {height: 100%;}
+
+@each $val in $content_dims {
+    .w-#{$val} {width: $val;}
+    .h-#{$val} {height: $val;}
+    .max-width-#{$val} {max-width: $val;}
+    .min-width-#{$val} {min-width: $val;}
+    .max-height-#{$val} {max-height: $val;}
+    .min-height-#{$val} {min-height: $val;}    
+    .square-#{$val} {height: $val;width:$val;}
+    //aspect ratios
+    @if $val > $dim_lboundary {
+        @if $val <= $twoToOne_uboundary {
+            .two-to-one-#{$val} {height: $val;width: #{2*$val};}
+            .one-to-two-#{$val} {width: $val;height: #{2*$val};}
+        }
+        @if $val <= $threeToOne_uboundary {
+            .one-to-three-#{$val} {width: $val;height: #{3*$val};}
+            .three-to-one-#{$val} {height: $val;width: #{3*$val};}
+        }
+        @if $val <= $fourToOne_uboundary {
+            .four-to-one-#{$val} {height: $val;width: #{4*$val};}
+            .one-to-four-#{$val} {width: $val;height: #{4*$val};}    
+        }
+    }
+}
+
+
+@mixin box-shadow($inset: null, $offset-x: 0, $offset-y: 0, $blur: null, $spread: $box-shadow-spread-3, $color: $box-shadow-color-2) {
+    box-shadow: $inset $offset-x $offset-y $blur $spread $color;
+}
+
+.box-shadow-0 {box-shadow: none;}
+.box-shadow-1-1 {@include box-shadow($spread: $box-shadow-spread-1, $color: $box-shadow-color-1);}
+.box-shadow-2-1 {@include box-shadow($spread: $box-shadow-spread-2, $color: $box-shadow-color-1);}
+.box-shadow-3-1 {@include box-shadow($spread: $box-shadow-spread-3, $color: $box-shadow-color-1);}
+.box-shadow-4-1 {@include box-shadow($spread: $box-shadow-spread-4, $color: $box-shadow-color-1);}
+.box-shadow-1-2 {@include box-shadow($spread: $box-shadow-spread-1, $color: $box-shadow-color-2);}
+.box-shadow-2-2 {@include box-shadow($spread: $box-shadow-spread-2, $color: $box-shadow-color-2);}
+.box-shadow-3-2 {@include box-shadow($spread: $box-shadow-spread-3, $color: $box-shadow-color-2);}
+.box-shadow-4-2 {@include box-shadow($spread: $box-shadow-spread-4, $color: $box-shadow-color-2);}
+.box-shadow-1-3 {@include box-shadow($spread: $box-shadow-spread-1, $color: $box-shadow-color-3);}
+.box-shadow-2-3 {@include box-shadow($spread: $box-shadow-spread-2, $color: $box-shadow-color-3);}
+.box-shadow-3-3 {@include box-shadow($spread: $box-shadow-spread-3, $color: $box-shadow-color-3);}
+.box-shadow-4-3 {@include box-shadow($spread: $box-shadow-spread-4, $color: $box-shadow-color-3);}
+
+.box-shadow-inset-1-1 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-1, $color: $box-shadow-color-1);}
+.box-shadow-inset-2-1 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-2, $color: $box-shadow-color-1);}
+.box-shadow-inset-3-1 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-3, $color: $box-shadow-color-1);}
+.box-shadow-inset-4-1 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-4, $color: $box-shadow-color-1);}
+.box-shadow-inset-1-2 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-1, $color: $box-shadow-color-2);}
+.box-shadow-inset-2-2 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-2, $color: $box-shadow-color-2);}
+.box-shadow-inset-3-2 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-3, $color: $box-shadow-color-2);}
+.box-shadow-inset-4-2 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-4, $color: $box-shadow-color-2);}
+.box-shadow-inset-1-3 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-1, $color: $box-shadow-color-3);}
+.box-shadow-inset-2-3 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-2, $color: $box-shadow-color-3);}
+.box-shadow-inset-3-3 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-3, $color: $box-shadow-color-3);}
+.box-shadow-inset-4-3 {@include box-shadow($inset: inset, $spread: $box-shadow-spread-4, $color: $box-shadow-color-3);}
+
+.sharp {border-radius: $border-radius-sharp;}
+.slight-round {border-radius: $border-radius-slight-round;}
+.medium-round {border-radius: $border-radius-medium-round;}
+.round {border-radius: $border-radius-round;}
+
+//whitespace
+.nowrap {white-space: nowrap;}

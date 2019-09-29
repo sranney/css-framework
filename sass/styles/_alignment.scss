@@ -1,0 +1,44 @@
+//creating padding and margin utility classes
+@each $part in $box-model-part {
+    @each $side in $sides {
+        @each $key,$value in $spacers {
+            @if $value == 'auto' and $part == 'margin' {
+                @if $side == 'x' {
+                    .margin-x-auto {margin-left: auto; margin-right: auto;}
+                } @else if $side == 'y' {
+                    .margin-y-auto {margin-top: auto; margin-bottom: auto;}
+                } @else {
+                    .margin-auto {margin: auto;}
+                }
+            } @else if $value != 'auto' {
+                @if $side != 'all' and $side != 'x' and $side !='y' {
+                    .#{$part}-#{$side}-#{$key} {#{$part}-#{$side}:$value;}
+                } @else if $side == 'all' {
+                    .#{$part}-#{$key} {#{$part}:$value;}
+                } @else if $side == 'x' {
+                    .#{$part}-x-#{$key} {#{$part}-left: $value;#{$part}-right: $value;}
+                } @else if $side == 'y' {
+                    .#{$part}-y-#{$key} {#{$part}-top: $value;#{$part}-bottom: $value;}
+                }
+            }
+        }
+    }
+}
+
+
+//indentation utility classes for typography
+.indent {
+    margin-left: 40px;
+}
+
+.indentx2 {
+    margin-left: 80px;
+}
+
+.indentx3 {
+    margin-left: 120px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
