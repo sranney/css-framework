@@ -31,14 +31,6 @@
 .text-capitalize {text-transform: capitalize;}
 .text-lowercase {text-transform: lowercase;}
 
-@mixin links-color ($baseColor: null,$hoverColor: null) {
-    & {color: $baseColor;}
-    &:active,
-    &:visited,
-    &:focus,
-    &:hover {color: $hoverColor;}
-}
-
 //create .text-{neutral|primary|accent...}-{100|200|...} utility classes
 @each $theme, $theme-scale in $color-mapping {
     @each $scale, $state-map in $theme-scale {

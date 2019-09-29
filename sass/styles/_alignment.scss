@@ -7,8 +7,10 @@
                     .margin-x-auto {margin-left: auto; margin-right: auto;}
                 } @else if $side == 'y' {
                     .margin-y-auto {margin-top: auto; margin-bottom: auto;}
-                } @else {
+                } @else if $side == 'all' {
                     .margin-auto {margin: auto;}
+                } @else {
+                    .margin-#{$side}-auto {margin-#{$side}: auto;}
                 }
             } @else if $value != 'auto' {
                 @if $side != 'all' and $side != 'x' and $side !='y' {
