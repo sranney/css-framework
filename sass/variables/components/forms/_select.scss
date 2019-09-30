@@ -1,0 +1,9 @@
+//general select styles
+$selectFontSize: $font-size-large;
+$selectBorderColor: 'transparent';
+$selectHeight: 40px;
+$selectWidth: 400px;
+$selectBackgroundColor: transparent;
+$selectPaddingLeft: map-get($spacers, 3);
+
+$selectValidEntryColor: var(--color-neutral-900);

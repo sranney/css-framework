@@ -1,0 +1,68 @@
+//general form input styling
+$defaultInputFontSize: $font-size-large !important;
+$defaultInputBorders: 'transparent';
+$defaultInputHeight: 40px;
+$defaultInputBackgroundColor: transparent;
+$defaultInputPaddingLeft: map-get($spacers, 3);
+
+//input styling for highlight input
+$inputHighlightBorderWidth: 2px;
+$inputHighlightBorderColor: var(--color-neutral-600);
+$inputHighlightBorderRadius: $border-radius-slight-round;
+$inputHighlightBoxShadow: $inset-box-shadow-initial-transparent;
+$inputHighlightFocusBoxShadowSuccess: inset 0 0 0 2px var(--color-success-700);
+$inputHighlightFocusBorderColorSuccess: var(--color-success-700);
+$inputHighlightNotFocusBorderColorValid: var(--color-primary-900);
+$inputHighlightNotFocusBorderColorInvalid: var(--color-danger-900);
+$inputHighlightAutoFillBoxShadow: 0 0 0 100px var(--color-primary-0) inset !important;
+$inputHighlightAutoFillBorderColor: var(--color-primary-900);
+$inputHighlightAutoFillBorderWidth: '2px';
+
+//span styling for input highlight
+$inputHighlightSpanLeftPosition: map-get($spacers, 3);
+
+//input styling for input bottom highlight
+$inputBottomHighlightBoxShadow: $bottom-inset-box-shadow-1;
+$inputBottomHighlightFocusBoxShadow: inset 0 -3px 0 0 var(--color-success-900);
+$inputBottomHighlightBottomBorderColorFocus: var(--color-success-900);
+$inputBottomHighlightBoxShadowValid: inset 0 -3px 0 0 var(--color-primary-900);
+$inputBottomHighlightBottomBorderValid: var(--color-primary-900);
+$inputBottomHighlightBoxShadowInvalid: inset 0 -3px 0 0 var(--color-danger-900);
+$inputBottomHighlightBottomBorderColor: var(--color-danger-900);
+$inputBottomHighlightFontColor: var(--color-neutral-600);
+$inputBottomHighlightInvalidBackground: var(--color-danger-200);
+$inputBottomHighlightAutofillBoxShadow: inset 0 -3px 0 0 var(--color-primary-900), 0 0 0 100px var(--color-primary-0) inset !important;
+
+//generic label span styling
+$inputLabelSpanTopPosition: 35%;
+$inputLabelSpanFontSize: $font-size-large;
+$inputLabelSpanInvalidColor: var(--color-danger-900);
+$inputLabelSpanAutoFillColor: var(--color-neutral-1000);
+$inputLabelSpanPlaceholderShownColor: var(--color-neutral-600);
+
+//hover bolden label span styling
+$hoverBoldenLabelSpanColor: var(--color-neutral-600);
+$hoverBoldenSpanColorOnHover: var(--color-primary-900);
+$hoverBoldenSpanColorOnHoverFontSize: $font-size-large + 1;
+
+//Hover Expand label span styling
+$hoverExpandLabelSpanColor: var(--color-primary-500);
+$hoverExpandLabelSpanOnHoverFontSize: $font-size-large + 1;
+$hoverExpandLabelSpanOnHoverColor: var(--color-primary-900);
+$hoverExpandLabelSpanOnHoverLetterSpcng: $letter-spacing-3px;
+
+//To Above
+$toAboveInteractedSpanTopPosition: -5px;
+$toAboveInteractedSpanFontSize: $font-size-small;
+$toAboveInteractedSpanColor: var(--color-neutral-1000);
+$toAboveInvalidSpanColor: var(--color-danger-900);
+$toAboveFocusSpanLetterSpacing: 0;
+$toAboveFocusSpanColor: var(--color-neutral-600);
+
+//To Below
+$toBelowInteractedSpanTopPosition: 55px;
+$toBelowInteractedSpanFontSize: $font-size-small;
+$toBelowInteractedSpanColor: var(--color-neutral-1000);
+$toBelowInvalidSpanColor: var(--color-danger-900);
+$toBelowFocusSpanLetterSpacing: 0;
+$toBelowFocusSpanColor: var(--color-neutral-600);

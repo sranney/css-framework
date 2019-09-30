@@ -2,68 +2,73 @@
 //general - all inputs will have this styling
 input,
 :-webkit-autofill {
-    font-family: 'Crimson Pro', serif !important;
-    font-size: $font-size-large !important;
+    font-family: $defaultFontFamily;
+    font-size: $defaultInputFontSize;
     transition: all 0.5s;
     outline: none;
-    @include border-tool($color: 'transparent');
-    height: 40px;
-    background-color: transparent;
-    padding-left: map-get($spacers, 3);
+    @include border-tool($color: $defaultInputBorders);
+    height: $defaultInputHeight;
+    background-color: $defaultInputBackgroundColor;
+    padding-left: $defaultInputPaddingLeft;
 }
 
 //interactive types for inputs - bottom highlight, highlight
 //highlight input
 .input-highlight {
-    @include border-tool($width: '2px', $color: var(--color-neutral-600));
-    border-radius: $border-radius-slight-round;
-    box-shadow: $inset-box-shadow-initial-transparent
-}
-.input-highlight.focus,
-.input-highlight.focus:invalid:placeholder-shown {
-    box-shadow: inset 0 0 0 2px var(--color-success-700);
-    @include border-tool($property: 'color', $color: var(--color-success-700));
-}
-.input-highlight:not(.focus):valid {
-    @include border-tool($property: 'color',$color: var(--color-primary-900));
-}
-.input-highlight.interacted:not(.focus):invalid {
-    @include border-tool($property: 'color', $color: var(--color-danger-900));
-}
+    @include border-tool($width: $inputHighlightBorderWidth, $color: $inputHighlightBorderColor);
+    border-radius: $inputHighlightBorderRadius;
+    box-shadow: $inputHighlightBoxShadow;
 
-.input-highlight:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 100px var(--color-primary-0) inset !important;
-    @include border-tool($color: var(--color-primary-900),$width: '2px', $flag: '!important');
+    &.focus,
+    &.focus:invalid:placeholder-shown {
+        box-shadow: $inputHighlightFocusBoxShadowSuccess;
+        @include border-tool($property: 'color', $color: $inputHighlightFocusBorderColorSuccess);
+    }
+
+    &:not(.focus):valid {
+        @include border-tool($property: 'color',$color: $inputHighlightNotFocusBorderColorValid);
+    }
+
+    &.interacted:not(.focus):invalid {
+        @include border-tool($property: 'color', $color: $inputHighlightNotFocusBorderColorInvalid);
+    }
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: $inputHighlightAutoFillBoxShadow;
+        @include border-tool($color: $inputHighlightAutoFillBorderColor,$width: $inputHighlightAutoFillBorderWidth, $flag: '!important');
+    }
 }
 
 //bottom-highlight input
 .input-bottom-highlight {
-    box-shadow: $bottom-inset-box-shadow-1;
+    box-shadow: $inputBottomHighlightBoxShadow;
     @include border-tool($property: 'bottom',$width: '2px',$color: 'transparent');
     @include border-tool($property: 'left', $width: '0px');
     @include border-tool($property: 'right', $width: '0px');
-}
-.input-bottom-highlight.focus,
-.input-bottom-highlight.focus:invalid:placeholder-shown{
-    box-shadow: inset 0 -3px 0 0 var(--color-success-900);
-    border-bottom-color: var(--color-success-900);
-}
-.input-bottom-highlight:not(.focus):valid {
-    box-shadow: inset 0 -3px 0 0 var(--color-primary-900);
-    border-bottom-color: var(--color-primary-900);
-}
-.input-bottom-highlight.interacted:not(.focus):invalid {
-    box-shadow: inset 0 -3px 0 0 var(--color-danger-900);
-    border-bottom-color: var(--color-danger-900);
-    color: var(--color-neutral-600);
+
+    &.focus,
+    &.focus:invalid:placeholder-shown{
+        box-shadow: $inputBottomHighlightFocusBoxShadow;
+        border-bottom-color: $inputBottomHighlightBottomBorderColorFocus;
+    }
+    &:not(.focus):valid {
+        box-shadow: $inputBottomHighlightBoxShadowValid;
+        border-bottom-color: $inputBottomHighlightBottomBorderValid;
+    }
+    &.interacted:not(.focus):invalid {
+        box-shadow: $inputBottomHighlightBoxShadowInvalid;
+        border-bottom-color: $inputBottomHighlightBottomBorderColor;
+        color: $inputBottomHighlightFontColor;
+    }
 }
 
+
 .bg-validate.interacted:not(.focus):invalid {
-    background-color: var(--color-danger-200);
+    background-color: $inputBottomHighlightInvalidBackground;
 }
 
 .input-bottom-highlight:-webkit-autofill {
-    box-shadow: inset 0 -3px 0 0 var(--color-primary-900), 0 0 0 100px var(--color-primary-0) inset !important;
+    box-shadow: $inputBottomHighlightAutofillBoxShadow;
 }
 
 //span styling
@@ -75,37 +80,37 @@ label input+span {
     pointer-events: none;
 }
 input+span {
-    top: 35%;
+    top: $inputLabelSpanTopPosition;
     transform: translateY(-50%);
-    font-size: $font-size-large;
+    font-size: $inputLabelSpanFontSize;
 }
 
 input:not(:placeholder-shown):invalid+span{
-    color: var(--color-danger-900);
+    color: $inputLabelSpanInvalidColor;
 }
 
 :-webkit-auto-fill + span {
-    color: var(--color-neutral-1000);
+    color: $inputLabelSpanAutoFillColor;
 }
 
 input:placeholder-shown+span {
-    color: var(--color-neutral-600);
+    color: $inputLabelSpanPlaceholderShownColor;
 }
 
 
 //slight modification for left placement for spans that are used with .highlight inputs
 .input-highlight+span {
-    left: map-get($spacers, 3);
+    left: $inputHighlightSpanLeftPosition;
 }
 
 //span classes for hover effects
 //span.hover-bolden
 input + .hover-bolden {
-    color: var(--color-neutral-600);
+    color: $hoverBoldenLabelSpanColor;
 }
 input:not(.focus):placeholder-shown:hover + .hover-bolden {
-    color: var(--color-primary-900);
-    font-size: $font-size-large + 1;
+    color: $hoverBoldenSpanColorOnHover;
+    font-size: $hoverBoldenSpanColorOnHoverFontSize;
 }
 input.focus + .hover-bolden,
 .interacted:not(:placeholder-shown) + .hover-bolden,
@@ -115,13 +120,13 @@ input.focus + .hover-bolden,
 
 //span.hover-expand
 input + .hover-expand {
-    color: var(--color-primary-500);
+    color: $hoverExpandLabelSpanColor;
 }
 
 input:not(.focus):placeholder-shown:hover + .hover-expand {
-    font-size: $font-size-large + 1;
-    color: var(--color-primary-900);
-    letter-spacing: $letter-spacing-3px;
+    font-size: $hoverExpandLabelSpanOnHoverFontSize;
+    color: $hoverExpandLabelSpanOnHoverColor;
+    letter-spacing: $hoverExpandLabelSpanOnHoverLetterSpcng;
 }
 
 input.focus + .hover-expand,
@@ -133,37 +138,37 @@ input.focus + .hover-expand,
 //span.to-above
 .interacted:not(:placeholder-shown)+.to-above,
 :-webkit-autofill + .to-above {
-    top: -5px;
-    font-size: $font-size-small;
+    top: $toAboveInteractedSpanTopPosition;
+    font-size: $toAboveInteractedSpanFontSize;
     opacity: 1;
-    color: var(--color-neutral-1000);
+    color: $toAboveInteractedSpanColor;
 }
 
 .interacted:not(.focus):not(:placeholder-shown):invalid+.to-above {
-    color: var(--color-danger-900);
+    color: $toAboveInvalidSpanColor;
 }
 
 .interacted.focus:placeholder-shown+.to-above {
     opacity: 1;
-    letter-spacing: 0;
-    color: var(--color-neutral-600);
+    letter-spacing: $toAboveFocusSpanLetterSpacing;
+    color: $toAboveFocusSpanColor;
 }
 
 //span.to-below 
 .interacted:not(:placeholder-shown)+.to-below,
 :-webkit-autofill + .to-below {
-    top: 55px;
-    font-size: $font-size-small;
+    top: $toBelowInteractedSpanTopPosition;
+    font-size: $toBelowInteractedSpanFontSize;
     opacity: 1;
-    color: var(--color-neutral-1000);
+    color: $toBelowInteractedSpanColor;
 }
 
 .interacted:not(.focus):not(:placeholder-shown):invalid+.to-below {
-    color: var(--color-danger-900);
+    color: $toBelowInvalidSpanColor;
 }
 
 .interacted.focus:placeholder-shown+.to-below {
     opacity: 1;
-    letter-spacing: 0;
-    color: var(--color-neutral-600);
+    letter-spacing: $toBelowFocusSpanLetterSpacing;
+    color: $toBelowFocusSpanColor;
 }

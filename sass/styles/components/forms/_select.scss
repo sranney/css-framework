@@ -1,16 +1,16 @@
 select {
-    font-family: 'Crimson Pro', serif;
-    font-size: $font-size-large;
+    font-family: $defaultFontFamily;
+    font-size: $selectFontSize;
     transition: all 0.5s;
     outline: none;
-    @include border-tool($color: 'transparent');
-    height: 40px;
-    width: 400px;
-    background-color: transparent;
-    padding-left: map-get($spacers, 3);
+    @include border-tool($color: $selectBorderColor);
+    height: $selectHeight;
+    width: $selectWidth;
+    background-color: $selectBackgroundColor;
+    padding-left: $selectPaddingLeft;
     -webkit-appearance: none;
 }
 
 select:valid {
-    color: var(--color-neutral-900);
+    color: $selectValidEntryColor;
 }
